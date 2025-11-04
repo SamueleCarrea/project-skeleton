@@ -1,9 +1,9 @@
 import torch
 from torch import nn
 from tqdm import tqdm
-from models import CustomNet
+from models.CustomNet import CustomNet
 from eval import validate
-from dataset import Preprocess
+from dataset.Preprocess import Preprocess
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
