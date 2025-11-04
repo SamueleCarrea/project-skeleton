@@ -9,6 +9,7 @@ import wandb
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Initialize wandb
+wandb.login(key="4a1e32bc7286c8595d697f2e7b2ff9428e5d07e6")
 wandb.init()
 
 # Define train function
