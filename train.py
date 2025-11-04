@@ -59,3 +59,6 @@ def main():
                 break
 
     print(f"Best accuracy : {best_accuracy}")
+
+if __name__ == '__main__':
+    main()
