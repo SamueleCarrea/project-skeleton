@@ -12,6 +12,6 @@ with open('data/tiny-imagenet/tiny-imagenet-200/val/val_annotations.txt') as f:
         fn, cls, *_ = line.split('\t')
         os.makedirs(f'data/tiny-imagenet/tiny-imagenet-200/val/{cls}', exist_ok=True)
 
-    shutil.copyfile(f'data/tiny-imagenet/tiny-imagenet-200/val/images/{fn}', f'data/tiny-imagenet/tiny-imagenet-200/val/{cls}/{fn}')
+        shutil.copyfile(f'data/tiny-imagenet/tiny-imagenet-200/val/images/{fn}', f'data/tiny-imagenet/tiny-imagenet-200/val/{cls}/{fn}')
 
 shutil.rmtree('data/tiny-imagenet/tiny-imagenet-200/val/images')
