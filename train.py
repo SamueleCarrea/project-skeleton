@@ -9,7 +9,7 @@ import wandb
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Initialize wandb
-wandb.init(project="tiny-imagenet", entity="your-entity")
+wandb.init()
 
 # Define train function
 def train(epoch, model, train_loader, criterion, optimizer):
