@@ -14,4 +14,4 @@ with open('data/tiny-imagenet/tiny-imagenet-200/val/val_annotations.txt') as f:
 
     shutil.copyfile(f'data/tiny-imagenet/tiny-imagenet-200/val/images/{fn}', f'data/tiny-imagenet/tiny-imagenet-200/val/{cls}/{fn}')
 
-    shutil.rmtree('data/tiny-imagenet/tiny-imagenet-200/val/images')
+shutil.rmtree('data/tiny-imagenet/tiny-imagenet-200/val/images')
