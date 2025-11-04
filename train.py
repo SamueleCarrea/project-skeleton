@@ -4,8 +4,12 @@ from tqdm import tqdm
 from models.CustomNet import CustomNet
 from eval import validate
 from dataset.Preprocess import Preprocess
+import wandb
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Initialize wandb
+wandb.init(project="tiny-imagenet", entity="your-entity")
 
 # Define train function
 def train(epoch, model, train_loader, criterion, optimizer):
@@ -48,6 +52,8 @@ def main():
         train(epoch, model, train_loader, criterion, optimizer)
         val_accuracy = validate(model, val_loader, criterion)
         scheduler.step()
+        wandb.log({"acc": val_accuracy})
+
         if val_accuracy > best_accuracy:
             best_accuracy = val_accuracy
             torch.save(model.state_dict(), 'best_model.pth')
@@ -57,6 +63,7 @@ def main():
             if counter >= patience:
                 print("Early stopping")
                 break
+    wandb.finish()
 
     print(f"Best accuracy : {best_accuracy}")
 
